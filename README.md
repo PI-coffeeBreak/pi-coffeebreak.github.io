@@ -1,3 +1,17 @@
 # pi-coffeebreak.github.io
 
-- teste
+### Setup
+
+#### Dependencies install
+
+```bash
+npm install
+```
+
+### Run
+
+#### Development
+
+```bash
+npm run dev
+```
