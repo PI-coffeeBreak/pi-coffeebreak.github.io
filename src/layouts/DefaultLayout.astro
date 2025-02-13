@@ -14,14 +14,21 @@ import Footer from '../components/Footer.astro'
     <script src="https://kit.fontawesome.com/b61194ae5c.js"></script>
   </head>
 
-  <body>
-    <Header />
-    <main  id="main-content" transition:animate="fade">
-      <div class="mx-auto">
-        <slot />
-      </div>
-    </main>
-    <Footer />
+  <body class="">
+
+    <div class="container mx-auto">
+      <Header />
+      <main id="main-content" class="">
+        <div class="mx-auto w-full">
+          <slot />
+        </div>
+      </main>
+    </div>
+
+    <div class="absolute bottom-0 right-0 left-0">
+      <Footer />
+    </div>
+
   </body>
 
 </html>

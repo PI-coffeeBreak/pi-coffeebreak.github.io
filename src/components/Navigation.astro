@@ -1,21 +1,23 @@
 ---
 import { Image } from 'astro:assets'
-import logo from '../assets/img/coffeeBreak.png'
+import logo from '../assets/img/2.svg'
 ---
 
 <div class="container navbar bg-base-100">
   <div class="flex-1">
     <a href="/" class="flex items-center gap-2 !no-underline">
-      <Image src={logo} alt="Your Logo" width="160" height="140" />
+      <Image src={logo} alt="Your Logo" width="180" height="160" />
     </a>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
-      <li><a>Link</a></li>
+      <li class="menu-item mr-2 bg-secondary text-white rounded-lg">
+        <a href="/#" title="external link">Link</a>
+      </li>
       <li>
-        <details>
+        <details class="menu-item mr-2 bg-secondary rounded-lg text-white">
           <summary>Milestones</summary>
-          <ul class="bg-base-100 rounded-t-none p-2">
+          <ul class="bg-secondary z-10 text-white rounded-lg p-2">
             <li><a href="/inception">M1-Inception</a></li>
             <li><a href="/elaboration">M2-Elaboration</a></li>
             <li><a href="/construction">M3-Construction</a></li>
@@ -23,23 +25,23 @@ import logo from '../assets/img/coffeeBreak.png'
           </ul>
         </details>
       </li>
-      <li class="menu-item">
-        <a href="#" title="external link">Team</a>
+      <li class="menu-item mr-2 bg-secondary text-white rounded-lg">
+        <a href="/team" title="external link">Team</a>
       </li>
 
-      <li class="menu-item type-icon">
+      <li class="menu-item mr-2 type-icon text-lg">
         <a href="https://github.com/PI-coffeeBreak" title="Go to the GitHub page">
           <i class="fa-brands fa-github"></i>
         </a>
       </li>
 
-      <li class="menu-item type-icon">
-        <a href="" title="Go to the GitHub page">
+      <li class="menu-item type-icon text-lg">
+        <a href="https://coffeebreak.atlassian.net/" title="Go to the GitHub page">
           <i class="fa-brands fa-jira"></i>
         </a >
       </li>
 
-      <li class="menu-item type-icon">
+      <li class="menu-item type-icon text-lg">
         <label class="swap swap-rotate">
           <input type="checkbox" class="theme-controller" value="synthwave" />
           <svg
