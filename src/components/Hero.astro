@@ -7,7 +7,7 @@ const { src = '/coffeebeans.png' } = Astro.props
     <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
       <div class="flex flex-col items-center gap-8 md:items-start">
         <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot><span class="text-primary">There's no event</span> without coffeeBreak.</slot>
+          <slot>There's no event without <span class="text-primary font-bold">coffeeBreak.</span></slot>
         </h1>
       </div>
       <img class="hidden lg:block relative right-0" src={src} alt="" decoding="async" />
