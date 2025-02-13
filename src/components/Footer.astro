@@ -1,18 +1,18 @@
----
-import CallToAction from './CallToAction.astro'
-
-const currentYear = new Date().getFullYear()
----
-
 <footer>
-  <CallToAction />
-  <section class="py-8">
-    <div class="container">
-      <p>
-        &copy; {currentYear} - Starter Theme for <a href="https://astro.build/">Astro</a>. Made with ❤️ by <a
-          href="https://github.com/markteekman">Mark Teekman</a
-        >.
-      </p>
-    </div>
-  </section>
+  <footer class="footer bg-neutral text-neutral-content p-10">
+    <nav>
+      <h6 class="footer-title">Advisors</h6>
+      <a href="https://www.ua.pt/pt/p/80334491" class="link link-hover">João Almeida</a>
+      <a href="https://www.ua.pt/pt/p/80653922" class="link link-hover">Daniel Ferreira</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Project</h6>
+      <a class="link link-hover">About us</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">More</h6>
+      <a href="https://github.com/PI-coffeeBreak" class="link link-hover">Github</a>
+      <a href="https://www.ua.pt/pt/p/80653922" class="link link-hover">Jira</a>
+    </nav>
+  </footer>
 </footer>
