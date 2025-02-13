@@ -10,7 +10,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        mytheme: {
+        coffeeLight: {
           "primary": "#4f2b1d",
           "secondary": "#726351",
           "accent": "#fbbf24",
@@ -21,6 +21,18 @@ module.exports = {
           "warning": "#f59e0b",
           "error": "#ef4444",
         },
+
+        coffeDark: {
+          "primary": "#ac7346",
+          "secondary": "#726351",
+          "accent": "#fbbf24",
+          "neutral": "#4F4F4F",
+          "base-100": "#323232",
+          "info": "#93c5fd",
+          "success": "#22c55e",
+          "warning": "#f59e0b",
+          "error": "#ef4444",
+        }
       },
     ],
   },
