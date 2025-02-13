@@ -4,10 +4,53 @@ import DefaultLayout from './DefaultLayout.astro'
 const { frontmatter } = Astro.props
 ---
 
+<style global>
+  /* Markdown style */
+  
+    h1 {
+      @apply text-3xl lg:text-5xl font-extrabold;
+    }
+  
+    h2 {
+      @apply text-2xl lg:text-4xl font-bold;
+    }
+
+    h3 {
+      @apply text-xl lg:text-3xl font-bold;
+    }
+
+    h4 {
+      @apply text-lg lg:text-2xl font-bold;
+    }
+
+    h5 {
+      @apply text-base lg:text-xl font-bold;
+    }
+
+    h6 {
+      @apply text-sm lg:text-lg font-bold
+    }
+  
+    ul {
+      @apply list-disc list-inside;
+    }
+
+    li {
+      @apply my-2;
+    }
+
+    ol {
+      @apply list-decimal list-inside;
+    }
+    
+  </style>
+
 <DefaultLayout title={frontmatter.title}>
   <div class="container">
     <div class="space-content my-12">
+      <h1>{frontmatter.title}</h1>
       <slot />
     </div>
   </div>
 </DefaultLayout>
+
