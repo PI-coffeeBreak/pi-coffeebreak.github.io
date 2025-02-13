@@ -1,8 +1,10 @@
-# pi-coffeebreak.github.io
+# coffeeBreak. docs
 
 ### Setup
 
 #### Dependencies install
+
+Node >= 18.17.1 required
 
 ```bash
 npm install
