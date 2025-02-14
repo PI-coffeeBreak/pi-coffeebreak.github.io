@@ -23,7 +23,7 @@ module.exports = {
         },
 
         coffeDark: {
-          "primary": "#ac7346",
+          "primary": "#e5c49e",
           "secondary": "#726351",
           "accent": "#fbbf24",
           "neutral": "#4F4F4F",
