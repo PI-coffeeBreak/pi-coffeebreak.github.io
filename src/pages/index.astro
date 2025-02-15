@@ -5,63 +5,54 @@ import Download from '../components/Download.astro'
 ---
 
 <DefaultLayout title="Home">
-  <div class="py-10">
+  <div class="py-20">
     <Hero />
-    
-    <div class="grid grid-cols-3 gap-10 mx-auto my-10">
-      <div class="flex flex-col items-center text-center p-6 border-b-4 border-transparent hover:border-primary transition-all duration-300">
-        <i class="fa-solid fa-puzzle-piece text-4xl text-primary mb-4"></i>
-        <h1 class="text-xl font-bold">Modular Application</h1>
-        <p class="text-gray-600 mt-2">You can have only the features you want.</p>
+
+    <div class="grid grid-cols-3 gap-10 mx-auto my-10 text-center">
+      <div class="flex flex-col items-center p-6 border-b-4 border-transparent hover:border-primary transition-all duration-300">
+        <i class="fa-solid fa-puzzle-piece text-5xl text-primary mb-6"></i>
+        <h2 class="text-3xl font-bold text-gray-900">Modular Application</h2>
+        <p class="text-lg text-gray-600 mt-4">You can have only the features you want.</p>
       </div>
-      <div class="flex flex-col items-center text-center p-6 border-b-4 border-transparent hover:border-primary transition-all duration-300">
-        <i class="fa-solid fa-layer-group text-4xl text-primary mb-4"></i>
-        <h1 class="text-xl font-bold">Scalable System</h1>
-        <p class="text-gray-600 mt-2">Easily expand your system as needed.</p>
+      <div class="flex flex-col items-center p-6 border-b-4 border-transparent hover:border-primary transition-all duration-300">
+        <i class="fa-solid fa-layer-group text-5xl text-primary mb-6"></i>
+        <h2 class="text-3xl font-bold text-gray-900">Scalable System</h2>
+        <p class="text-lg text-gray-600 mt-4">Easily expand your system as needed.</p>
       </div>
-      <div class="flex flex-col items-center text-center p-6 border-b-4 border-transparent hover:border-primary transition-all duration-300">
-        <i class="fa-solid fa-shield-alt text-4xl text-primary mb-4"></i>
-        <h1 class="text-xl font-bold">Security First</h1>
-        <p class="text-gray-600 mt-2">Your data and system remain protected.</p>
+      <div class="flex flex-col items-center p-6 border-b-4 border-transparent hover:border-primary transition-all duration-300">
+        <i class="fa-solid fa-shield-alt text-5xl text-primary mb-6"></i>
+        <h2 class="text-3xl font-bold text-gray-900">Security First</h2>
+        <p class="text-lg text-gray-600 mt-4">Your data and system remain protected.</p>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center my-20">
-      <div class="flex justify-center">
-        <img src="../../public/conference.svg" class="ml-0 w-3/4 max-w-md" alt="Conference illustration">
-      </div>
-      <div class="flex flex-col w-full">
-        <div class="join join-vertical w-full">
-          <div class="collapse collapse-arrow join-item border-primary border-4 rounded-lg">
-            <input type="radio" name="my-accordion-4" checked="checked" />
-            <div class="collapse-title text-xl font-medium">Feature 1</div>
-            <div class="collapse-content">
-              <p>Description of feature 1.</p>
-            </div>
-          </div>
-          <div class="collapse collapse-arrow join-item border-primary border-x-4 rounded-lg">
-            <input type="radio" name="my-accordion-4" />
-            <div class="collapse-title text-xl font-medium">Feature 2</div>
-            <div class="collapse-content">
-              <p>Description of feature 2.</p>
-            </div>
-          </div>
-          <div class="collapse collapse-arrow join-item border-primary border-4 rounded-lg">
-            <input type="radio" name="my-accordion-4" />
-            <div class="collapse-title text-xl font-medium">Feature 3</div>
-            <div class="collapse-content">
-              <p>Description of feature 3.</p>
+    <div class="overflow-hidden bg-white py-16">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
+          <img src="../../public/conference.svg" alt="Product screenshot" class="w-3/4" width="2432" height="1442">
+          <div class="lg:pt-4 lg:pr-8 text-center md:text-left">
+            <div class="lg:max-w-lg">
+              <h2 class="text-xl font-semibold text-primary uppercase">Convenient Conference Management</h2>
+              <p class="mt-2 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">coffeeBreak.</p>
+              <p class="mt-4 text-xl text-gray-600">An event management platform that allows customization with the necessary modules for each event.</p>
+              <dl class="mt-6 space-y-4 text-lg text-gray-600">
+                <div>
+                  <dt class="font-bold text-gray-900">Modular Design</dt>
+                  <dd>Quick adaptation for different types of events like fairs, hackathons, or keynotes.</dd>
+                </div>
+                <div>
+                  <dt class="font-bold text-gray-900">Scalability</dt>
+                  <dd>Adjust the system to fit varying budget requirements and event sizes.</dd>
+                </div>
+                <div>
+                  <dt class="font-bold text-gray-900">Customization</dt>
+                  <dd>Align visual branding and integrate new modules seamlessly for unique event formats.</dd>
+                </div>
+              </dl>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="grid grid-cols-3 gap-6">
-      <Download title="Meeting 1" description="First Meeting Minute" file_path="../../docs/minute1.pdf" />
-      <Download title="Meeting 2" description="Second Meeting Minute" file_path="../../docs/minute2.pdf" />
-      <Download title="Meeting 3" description="Third Meeting Minute" file_path="../../docs/minute3.pdf" />
-    </div>
   </div>
 </DefaultLayout>
-
