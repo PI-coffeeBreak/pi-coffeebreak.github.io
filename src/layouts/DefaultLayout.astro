@@ -18,20 +18,18 @@ const full_title = title ? `${title} | coffeeBreak.` : 'coffeeBreak.'
     <script src="https://kit.fontawesome.com/b61194ae5c.js"></script>
   </head>
 
-  <body class="">
+  <body class="min-h-screen flex flex-col">
 
-    <div class="container mx-auto">
+    <div class="flex-grow container mx-auto">
       <Header />
-      <main id="main-content" class="">
+      <main id="main-content" class="flex-grow">
         <div class="mx-auto w-full">
           <slot />
         </div>
       </main>
     </div>
 
-    <div class="">
-      <Footer />
-    </div>
+    <Footer class="mt-auto" />
 
   </body>
 
