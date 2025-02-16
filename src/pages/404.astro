@@ -1,17 +1,15 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Layout from '../layouts/Layout.astro'
 ---
 
-<DefaultLayout title="404">
-  <section class="my-12">
-    <div class="container">
-      <h1>404</h1>
-    </div>
-  </section>
-  <section class="my-12">
-    <div class="space-content container">
-      <p class="text-2xl">This page does not exist. Don't worry though, we got you.</p>
-      <a class="button" href="/">Let's get you home Astronout 🚀</a>
-    </div>
-  </section>
-</DefaultLayout>
+<Layout title="404">
+  <div class="flex flex-col items-center justify-center h-screen text-center px-6">
+    <h1 class="text-9xl font-extrabold text-primary">404</h1>
+    <p class="text-2xl sm:text-3xl text-gray-700 mt-4">Oops! Página não encontrada.</p>
+    <p class="text-lg text-gray-500 mt-2">A página que procura foi removida ou está temporariamente indisponível.</p>
+    <a href="/" class="mt-6 px-6 py-3 bg-primary text-white text-lg font-semibold rounded-lg shadow-md hover:bg-opacity-80 transition-all duration-300">
+      Voltar à Página Inicial
+    </a>
+  </div>
+</Layout>
+

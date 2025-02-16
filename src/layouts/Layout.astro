@@ -1,0 +1,26 @@
+---
+import '@astrojs/tailwind/base.css'
+const { title } = Astro.props
+const full_title = title ? `${title} | coffeeBreak.` : 'coffeeBreak.'
+---
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{full_title}</title>
+    <script src="https://kit.fontawesome.com/b61194ae5c.js"></script>
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <div class="flex-grow container mx-auto">
+      <main id="main-content" class="flex-grow">
+        <div class="mx-auto w-full">
+          <slot />
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
