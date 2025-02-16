@@ -9,29 +9,20 @@ import TeamMember from '../components/TeamMember.astro';
 ---
 
 <DefaultLayout title="Team">
-    <div class="flex flex-wrap justify-center items-center gap-12 mx-8 mt-10 mb-16">
-        <TeamMember name="Diogo Domingues" foto_path={DiogoD.src} linkedin="https://www.linkedin.com/in/diogo-domingues-a1960a351/" github="https://github.com/DJI28"/>
-        <TeamMember name="Gabriel Silva" foto_path={GabrielS.src} linkedin="https://www.linkedin.com/in/gabriel-silva-5b89942a4/" github="https://github.com/GabrielMSilva04"/>
-        <TeamMember name="Maria Linhares" foto_path={MariaL.src} linkedin="https://www.linkedin.com/in/marialuislinhares/" github="https://github.com/MariaLinhares"/>
-        <TeamMember name="Martim Santos" foto_path={MartimS.src} linkedin="https://www.linkedin.com/in/martimsantos15/" github="https://github.com/martimsoutooo"/>
-        <div class="max-w-sm w-full sm:w-1/2 lg:w-1/3 flex flex-col items-center">
-            <div class="avatar">
-                <div class="rounded-full w-64 overflow-hidden border-4 border-transparent hover:border-primary ">
-                    <img src={SebastiaoT.src} class="w-full h-full object-cover" />
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <h2 class="text-lg font-bold">Sebastião Teixeira</h2>
-            </div>
-            <div class="flex justify-center space-x-4 mt-2 text-xl">
-                <!--<a href="#" class="text-gray-500 hover:text-primary">-->
-                <!--    <i class="fab fa-linkedin"></i>-->
-                <!--</a>-->
-                <a href="https://github.com/sebastiaoteixeira" class="text-gray-500 hover:text-primary">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
+    <div class="flex justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center py-20 w-full max-w-6xl mx-auto gap-12">
+            <TeamMember name="Diogo Domingues" foto_path={DiogoD.src} linkedin="https://www.linkedin.com/in/diogo-domingues-a1960a351/" github="https://github.com/DJI28"/>
+            <TeamMember name="Gabriel Silva" foto_path={GabrielS.src} linkedin="https://www.linkedin.com/in/gabriel-silva-5b89942a4/" github="https://github.com/GabrielMSilva04"/>
+            <TeamMember name="Maria Linhares" foto_path={MariaL.src} linkedin="https://www.linkedin.com/in/marialuislinhares/" github="https://github.com/MariaLinhares"/>
+        </div>
+        
+    </div>
+    <div class="flex justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 place-items-center w-full max-w-3xl mx-auto">
+            <TeamMember name="Martim Santos" foto_path={MartimS.src} linkedin="https://www.linkedin.com/in/martimsantos15/" github="https://github.com/martimsoutooo"/>
+            <TeamMember name="Sebastião Teixeira" foto_path={SebastiaoT.src} github="https://github.com/sebastiaoteixeira"/>
         </div>
     </div>
 </DefaultLayout>
+
   
