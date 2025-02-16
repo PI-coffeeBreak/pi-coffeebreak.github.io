@@ -9,19 +9,12 @@ import TeamMember from '../components/TeamMember.astro';
 ---
 
 <DefaultLayout title="Team">
-    <div class="flex justify-center">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center py-20 w-full max-w-6xl mx-auto gap-12">
-            <TeamMember name="Diogo Domingues" foto_path={DiogoD.src} linkedin="https://www.linkedin.com/in/diogo-domingues-a1960a351/" github="https://github.com/DJI28"/>
-            <TeamMember name="Gabriel Silva" foto_path={GabrielS.src} linkedin="https://www.linkedin.com/in/gabriel-silva-5b89942a4/" github="https://github.com/GabrielMSilva04"/>
-            <TeamMember name="Maria Linhares" foto_path={MariaL.src} linkedin="https://www.linkedin.com/in/marialuislinhares/" github="https://github.com/MariaLinhares"/>
-        </div>
-        
-    </div>
-    <div class="flex justify-center">
-        <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 place-items-center w-full max-w-3xl mx-auto">
-            <TeamMember name="Martim Santos" foto_path={MartimS.src} linkedin="https://www.linkedin.com/in/martimsantos15/" github="https://github.com/martimsoutooo"/>
-            <TeamMember name="Sebastião Teixeira" foto_path={SebastiaoT.src} github="https://github.com/sebastiaoteixeira"/>
-        </div>
+    <div class="flex flex-wrap justify-center px-8 py-12 gap-x-6 gap-y-12">
+        <TeamMember name="Diogo Domingues" foto_path={DiogoD.src} linkedin="https://www.linkedin.com/in/diogo-domingues-a1960a351/" github="https://github.com/DJI28"/>
+        <TeamMember name="Gabriel Silva" foto_path={GabrielS.src} linkedin="https://www.linkedin.com/in/gabriel-silva-5b89942a4/" github="https://github.com/GabrielMSilva04"/>
+        <TeamMember name="Maria Linhares" foto_path={MariaL.src} linkedin="https://www.linkedin.com/in/marialuislinhares/" github="https://github.com/MariaLinhares"/>
+        <TeamMember name="Martim Santos" foto_path={MartimS.src} linkedin="https://www.linkedin.com/in/martimsantos15/" github="https://github.com/martimsoutooo"/>
+        <TeamMember name="Sebastião Teixeira" foto_path={SebastiaoT.src} github="https://github.com/sebastiaoteixeira"/>
     </div>
 </DefaultLayout>
 
