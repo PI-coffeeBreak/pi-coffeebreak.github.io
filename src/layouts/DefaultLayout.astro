@@ -10,6 +10,19 @@ const full_title = title ? `${title} | coffeeBreak.` : 'coffeeBreak.'
 
 <html lang="en" dir="ltr">
   <head>
+    <script is:inline>
+      // ☝️ This script prevent the FART effect.
+      if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else
+      document.documentElement.setAttribute("data-theme",localStorage.getItem("theme"));
+      // "theme" LocalStorage value is set by the package to remember user preference.
+      // The value is checked and applyed before rendering anything.
+    </script>
+    <script>
+      import { themeChange } from "theme-change";
+      themeChange();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -22,7 +35,7 @@ const full_title = title ? `${title} | coffeeBreak.` : 'coffeeBreak.'
 
     <div class="flex-grow container mx-auto">
       <Header />
-      <main id="main-content" class="flex-grow">
+      <main id="main-content" class="flex-grow mt-16">
         <div class="mx-auto w-full">
           <slot />
         </div>

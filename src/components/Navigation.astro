@@ -2,7 +2,8 @@
 
 ---
 
-<div class="navbar bg-base-100 container mx-auto px-4 lg:px-8">
+<div class="navbar bg-base-100 container mx-auto px-4 lg:px-8 fixed transition-all duration-300 sm:shadow-none z-50
+" id="navbar">
   <!-- Left: Logo -->
   <div class="flex-1">
     <a href="/" class="flex items-center gap-2 !no-underline object-cover">
@@ -15,8 +16,8 @@
   <!-- Right: Menu (Collapsible) -->
   <div class="flex-none">
     <div class="menu-item type-icon text-lg lg:hidden">
-      <label class="swap swap-rotate">
-        <input type="checkbox" class="theme-controller" value="coffeDark" />
+      <label class="swap swap-rotate hidden">
+        <input type="checkbox" class="theme-controller" value="coffeeDark" data-toggle-theme="coffeeDark,coffeeLight" data-act-class="coffeeLight" />
         <svg
             class="swap-off h-8 w-6 fill-current mr-6"
             xmlns="http://www.w3.org/2000/svg"
@@ -95,8 +96,8 @@
       </li>
 
       <li class="menu-item type-icon text-lg">
-        <label class="swap swap-rotate">
-          <input type="checkbox" class="theme-controller" value="coffeDark" />
+        <label class="swap swap-rotate hidden">
+        <input type="checkbox" class="theme-controller" value="coffeeDark" data-toggle-theme="coffeeDark,coffeeLight" data-act-class="coffeeLight" />
           <svg
               class="swap-off h-4 w-4 fill-current"
               xmlns="http://www.w3.org/2000/svg"
@@ -116,3 +117,33 @@
     </ul>
   </div>
 </div>
+
+<script src="../scripts/navbarhide.js"></script>
+<script>
+  // Seleciona todos os controladores de tema
+  const themeControllers = document.querySelectorAll('.theme-controller') as NodeListOf<HTMLInputElement>;
+  
+  // Define o estado inicial baseado no tema armazenado
+  themeControllers.forEach(controller => {
+    if (localStorage.getItem('theme') === 'coffeeDark') {
+      controller.checked = true;
+    } else {
+      controller.checked = false;
+    }
+  });
+
+  // Adiciona listeners para sincronizar os controladores
+  themeControllers.forEach(controller => {
+    controller.addEventListener('change', (e) => {
+      const isChecked = (e.target as HTMLInputElement).checked;
+      themeControllers.forEach(ctrl => {
+        ctrl.checked = isChecked;
+      });
+    });
+  });
+
+  // Remove a classe 'hidden' dos elementos swap após carregar os listeners
+  document.querySelectorAll('.swap').forEach(swap => {
+    swap.classList.remove('hidden');
+  });
+</script>

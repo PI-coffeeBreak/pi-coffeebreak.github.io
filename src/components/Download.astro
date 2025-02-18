@@ -2,10 +2,10 @@
 const { title, description, file_path } = Astro.props;
 ---
 
-<div class="border-4 border-primary p-6 h-56 rounded-none bg-white shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-    <div class="text-3xl font-extrabold text-gray-900">{title}</div>
-    <div class="text-lg text-gray-600 mb-2 mt-2">{description}</div>
-    <a href={file_path} download class="btn btn-primary mb-4 flex items-center justify-center gap-3 py-3 px-5 rounded-none bg-primary text-white font-semibold text-lg shadow-md hover:bg-primary-dark hover:shadow-lg transition-all duration-300">
+<div class="border-4 border-primary p-6 pb-2 rounded-none bg-base-200 shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+    <div class="text-3xl font-extrabold text-base-content">{title}</div>
+    <div class="text-lg text-base-content mb-2 mt-2">{description}</div>
+    <a href={file_path} download class="btn btn-primary mb-4 flex items-center justify-center gap-3 py-2 px-5 rounded-none bg-primary text-white font-semibold text-lg shadow-md hover:bg-primary-dark hover:shadow-lg transition-all duration-300">
         <i class="fa-solid fa-download text-xl"></i> Download
     </a>
 </div>
