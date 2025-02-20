@@ -23,7 +23,7 @@ module.exports = {
           "error": "#ef4444",
         },
 
-        coffeDark: {
+        coffeeDark: {
           "primary": "#e5c49e",
           "secondary": "#726351",
           "accent": "#fbbf24",
@@ -37,5 +37,5 @@ module.exports = {
       },
     ],
   },
-  darkMode: ['class', '.darkmode'],
+  darkMode: ['selector', '[data-theme="coffeeDark"]'],
 }
