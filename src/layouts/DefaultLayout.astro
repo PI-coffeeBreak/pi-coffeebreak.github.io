@@ -1,11 +1,11 @@
 ---
-import '@astrojs/tailwind/base.css'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import "@astrojs/tailwind/base.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
-const { title } = Astro.props
+const { title } = Astro.props;
 
-const full_title = title ? `${title} | coffeeBreak.` : 'coffeeBreak.'
+const full_title = title ? `${title} | coffeeBreak.` : "coffeeBreak.";
 ---
 
 <html lang="en" dir="ltr">
@@ -15,7 +15,10 @@ const full_title = title ? `${title} | coffeeBreak.` : 'coffeeBreak.'
       if (localStorage.getItem("theme") === null) {
         document.documentElement.setAttribute("data-theme", "dark");
       } else
-      document.documentElement.setAttribute("data-theme",localStorage.getItem("theme"));
+        document.documentElement.setAttribute(
+          "data-theme",
+          localStorage.getItem("theme")
+        );
       // "theme" LocalStorage value is set by the package to remember user preference.
       // The value is checked and applyed before rendering anything.
     </script>
@@ -32,7 +35,6 @@ const full_title = title ? `${title} | coffeeBreak.` : 'coffeeBreak.'
   </head>
 
   <body class="min-h-screen flex flex-col">
-
     <div class="flex-grow container mx-auto">
       <Header />
       <main id="main-content" class="flex-grow mt-16">
@@ -43,7 +45,12 @@ const full_title = title ? `${title} | coffeeBreak.` : 'coffeeBreak.'
     </div>
 
     <Footer class="mt-auto" />
-
   </body>
-
 </html>
+
+<!-- This is used to make compensate the header height when using the sidebar for navigation -->
+<style is:global>
+  h1, h2, h3, h4, h5, h6 {
+    @apply scroll-mt-16;
+  }
+</style>

@@ -2,7 +2,15 @@
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    extend: {},
+    extend: {
+      typography: { /** CSS Custom Properties for Markdown Articles */
+        DEFAULT: {
+          css: {
+            maxWidth: '80ch', // 80 characters per line instead of 65
+          },
+        },
+      },
+    },
   },
   plugins: [
       require('daisyui'),

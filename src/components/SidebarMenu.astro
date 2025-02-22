@@ -1,0 +1,42 @@
+---
+const { items } = Astro.props;
+---
+
+<ul class="menu w-72">
+  {
+    items.map((item) => (
+      <li>
+        <a href={`#${item.slug}`}>{item.text}</a>
+        {item.children && item.children.length > 0 && (
+          <ul class="submenu">
+            {item.children.map((child) => (
+              <li>
+                <a href={`#${child.slug}`}>{child.text}</a>
+                {child.children && child.children.length > 0 && (
+                  <ul class="submenu">
+                    {child.children.map((subchild) => (
+                      <li>
+                        <a href={`#${subchild.slug}`}>{subchild.text}</a>
+                        {subchild.children && subchild.children.length > 0 && (
+                          <ul class="submenu">
+                            {subchild.children.map((subsubchild) => (
+                              <li>
+                                <a href={`#${subsubchild.slug}`}>
+                                  {subsubchild.text}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))
+  }
+</ul>
