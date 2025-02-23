@@ -74,7 +74,7 @@ const nestedHeadings = buildNestedHeadings(headings);
         </div>
         <label
           for="sidebar"
-          class="btn btn-primary drawer-button fixed bottom-8 right-8 lg:hidden"
+          class="btn btn-primary drawer-button fixed bottom-8 right-8 lg:hidden z-10"
           >Sidebar >></label
         >
       </div>
@@ -84,6 +84,6 @@ const nestedHeadings = buildNestedHeadings(headings);
 
 <style is:global>
 tr > th:first-child, tr > td:first-child, article > *{
-    @apply sticky left-0 bg-base-100;
+    @apply sticky left-0 bg-base-100 z-10;
 }
 </style>

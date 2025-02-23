@@ -5,14 +5,53 @@ title: Elaboration
 
 # M2 - Elaboration
 
-## Features Comparison
+## State-of-the-art
+
+### Selected Features
+These are the key features we identified in our market analysis.
+
+
+#### Core Features
+- **Features Selection**: Allows to (de)activate specific features
+- **Activities Scheduling**: Allows the creation of the event program and exhibit it to attendees
+- **Extensibility**: Integrate extra features through API's, plugins, etc.
+- **Customized webpages**: Have customization features to create event specific webpages
+- **Personal Schedule**: Allows attendees and speakers to view a partial schedule with only their activities
+
+#### Communication & Social
+- **Broadcast Notifications**: Allows staff to send announcements to attendees and others
+- **Posts**: Allows Organizers/staff to publish posts that attendees can see
+- **Attendees Chat**: Allows messaging between attendees
+- **Discussion Topics**: Allows the creation of a chat related to a topic of the event (e.g. lecture, workshop, etc.)
+- **Social feed**: Allows attendees and speakers to publish content (text, images, etc.)
+- **Networking Suggestions**: Indicates people with the same interests in the event
+
+#### Event Management
+- **QR Code/e-badges**: Allows the use of QR Codes / e-badges to verify attendees identity, activity registration or gamification features
+- **Schedule Meetings**: Allows attendees to schedule meetings with others
+- **Gamification**: Allows the creation of challenges to increase engagement
+- **Floor Plan**: Allows the visualization of the event enclosure
+- **Live Q&A/Polls**: Allows the creation of Q&A sessions or polls during a speech
+- **Online transmissions**: Allows the visualization of the event online
+
+#### Business & Analytics
+- **Sponsor disclosure**: Allows disclosure of sponsors
+- **Sponsorship Tiers**: Allows to increase publicity for main sponsors
+- **Event Stats**: Allows organizers to collect and visualize some statistics of the event
+- **Reserve Seats**: Allows attendees to reserve seat in an activity with limited number of participants
+- **Event feedback**: Allows the collection of event feedback through surveys or ratings
+
+#### Contact Features
+- **Attendees-Exhibitors Contact**: Allows attendees to chat with exhibitors
+- **Attendees-Staff Contact**: Allows attendees to contact with staff
+- **Exhibitors/Speakers-Staff Contact**: Allows exhibitors and speakers to contact staff
 
 Based on our market analysis during the inception phase, we conducted a detailed comparison of how each platform implements the identified features.
 
 ### Core Features
 
-| System | Features Selection | Activities Scheduling | Extensibility | Customized webpages | Personal Schedule |
-|--------|-------------------|----------------------|---------------|-------------------|------------------|
+| System | <span class="tooltip tooltip-right" data-tip="Allows to (de)activate specific features">Features Selection</span> | <span class="tooltip" data-tip="Allows the creation of the event program and exhibit it to attendees">Activities Scheduling</span> | <span class="tooltip" data-tip="Integrate extra features through API's, plugins, etc.">Extensibility</span> | <span class="tooltip" data-tip="Have customization features to create event specific webpages">Customized webpages</span> | <span class="tooltip tooltip-left" data-tip="Allows attendees and speakers to view a partial schedule with only their activities">Personal Schedule</span> |
+|--------|:------------------:|:----------------------:|:---------------:|:-------------------:|:------------------:|
 | CVENT | ✅ | ✅ | ❌ | ✅ | ✅ |
 | Swapcard | ✅ | ✅ | 🟨 | ✅ | ✅ |
 | Whova | ❌ | ✅ | ❌ | ✅ | ✅ |
@@ -20,8 +59,8 @@ Based on our market analysis during the inception phase, we conducted a detailed
 
 ### Communication & Social
 
-| System | Broadcast Notifications | Posts | Attendees Chat | Discussion Topics | Social feed | Networking Suggestions |
-|--------|----------------------|-------|----------------|------------------|-------------|---------------------|
+| System | <span class="tooltip tooltip-right" data-tip="Allows staff to send announcements to attendees and others">Broadcast Notifications</span> | <span class="tooltip" data-tip="Allows Organizers/staff to publish posts that attendees can see">Posts</span> | <span class="tooltip" data-tip="Allows messaging between attendees">Attendees Chat</span> | <span class="tooltip" data-tip="Allows the creation of a chat related to a topic of the event (e.g. lecture, workshop, etc.)">Discussion Topics</span> | <span class="tooltip" data-tip="Allows attendees and speakers to publish content (text, images, etc.)">Social feed</span> | <span class="tooltip tooltip-left" data-tip="Indicates people with the same interests in the event">Networking Suggestions</span> |
+|--------|:----------------------:|:-------:|:----------------:|:------------------:|:-------------:|:--------------------:|
 | CVENT | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | Swapcard | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Whova | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ |
@@ -29,8 +68,8 @@ Based on our market analysis during the inception phase, we conducted a detailed
 
 ### Event Management
 
-| System | QR Code/e-badges | Schedule Meetings | Gamification | Floor Plan | Live Q&A/Polls | Online transmissions |
-|--------|-----------------|------------------|--------------|------------|----------------|-------------------|
+| System | <span class="tooltip tooltip-right" data-tip="Allows the use of QR Codes / e-badges to verify attendees identity, activity registration or gamification features">QR Code/e-badges</span> | <span class="tooltip" data-tip="Allows attendees to schedule meetings with others">Schedule Meetings</span> | <span class="tooltip" data-tip="Allows the creation of challenges to increase engagement">Gamification</span> | <span class="tooltip" data-tip="Allows the visualization of the event enclosure">Floor Plan</span> | <span class="tooltip" data-tip="Allows the creation of Q&A sessions or polls during a speech">Live Q&A/Polls</span> | <span class="tooltip tooltip-left" data-tip="Allows the visualization of the event online">Online transmissions</span> |
+|--------|:---------------:|:------------------:|:--------------:|:------------:|:----------------:|:-------------------:|
 | CVENT | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ |
 | Swapcard | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |
 | Whova | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -38,8 +77,8 @@ Based on our market analysis during the inception phase, we conducted a detailed
 
 ### Business & Analytics
 
-| System | Sponsor disclosure | Sponsorship Tiers | Event Stats | Reserve Seats | Event feedback |
-|--------|-------------------|-------------------|-------------|---------------|----------------|
+| System | <span class="tooltip tooltip-right" data-tip="Allows disclosure of sponsors">Sponsor disclosure</span> | <span class="tooltip" data-tip="Allows to increase publicity for main sponsors">Sponsorship Tiers</span> | <span class="tooltip" data-tip="Allows organizers to collect and visualize some statistics of the event">Event Stats</span> | <span class="tooltip" data-tip="Allows attendees to reserve seat in an activity with limited number of participants">Reserve Seats</span> | <span class="tooltip tooltip-left" data-tip="Allows the collection of event feedback through surveys or ratings">Event feedback</span> |
+|--------|:-------------------:|:-------------------:|:-------------:|:---------------:|:----------------:|
 | CVENT | ✅ | ✅ | ✅ | ❌ | ✅ |
 | Swapcard | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Whova | ✅ | ✅ | ✅ | ❌ | ✅ |
@@ -47,8 +86,8 @@ Based on our market analysis during the inception phase, we conducted a detailed
 
 ### Contact Features
 
-| System | Attendees-Exhibitors Contact | Attendees-Staff Contact | Exhibitors/Speakers-Staff Contact |
-|--------|----------------------------|------------------------|--------------------------------|
+| System | <span class="tooltip tooltip-right" data-tip="Allows attendees to chat with exhibitors">Attendees-Exhibitors Contact</span> | <span class="tooltip" data-tip="Allows attendees to contact with staff">Attendees-Staff Contact</span> | <span class="tooltip" data-tip="Allows exhibitors and speakers to contact staff">Exhibitors/Speakers-Staff Contact</span>  |
+|--------|:----------------------------:|:------------------------:|:--------------------------------:|
 | CVENT | ✅ | ✅ | ✅ |
 | Swapcard | ❌ | ❌ | ✅ |
 | Whova | ✅ | ❌ | ✅ |
