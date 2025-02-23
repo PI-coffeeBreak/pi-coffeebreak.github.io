@@ -67,8 +67,8 @@ const nestedHeadings = buildNestedHeadings(headings);
         </aside>
 
         <!-- Main content -->
-        <div class="space-content mt-12 mb-8">
-          <article class="prose lg:prose-lg 2xl:prose-xl">
+        <div class="space-content mt-12 mb-8 max-w-full">
+          <article class="prose overflow-x-auto lg:prose-lg 2xl:prose-xl">
             <slot />
           </article>
         </div>
@@ -81,3 +81,9 @@ const nestedHeadings = buildNestedHeadings(headings);
     </div>
   </div>
 </DefaultLayout>
+
+<style is:global>
+tr > th:first-child, tr > td:first-child, article > *{
+    @apply sticky left-0 bg-base-100;
+}
+</style>
