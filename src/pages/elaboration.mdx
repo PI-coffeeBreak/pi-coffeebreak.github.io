@@ -98,9 +98,10 @@ Legend:
 - ❌ Not Available
 - 🟨 Partially Available
 
-## Analysis and Technical Implications
 
-### **Functional Requirements**
+## Requirements
+
+### Functional Requirements
 All these requirements will be present in the Minimum Viable Product (MVP)
 
 <details>
@@ -225,7 +226,63 @@ All these requirements will be present in the Minimum Viable Product (MVP)
 
 </details>
 
-(Here we can add technical analysis of each feature, implementation considerations, and architectural decisions based on this comparison)
+
+### Non-functional requirements
+
+#### **Performance & Scalability**
+
+1. The system should support at least **1,000 concurrent users** without performance degradation.
+2. Event activity and event page updates should be reflected with minimal latency.
+
+---
+
+#### **Security**
+
+1. The system should **encrypt critical user data** in transit and at rest using **AES-256 encryption**.
+2. User roles and permissions should be enforced via **role-based access control (RBAC)**.
+3. Only authorized organizers and staff members should be able to modify event details, speaker profiles, and user management settings.
+4. All API endpoints should be protected against **SQL injection, XSS, and CSRF attacks**.
+
+---
+
+#### **Usability & Accessibility**
+
+1. The floor plan should be **zoomable** for easier navigation.
+2. The system should provide **clear error messages** when users miss required fields.
+3. Event registration should include **confirmation notifications** via email.
+4. Users should be able to toggle event notifications easily.
+
+---
+
+#### **Reliability & Availability**
+
+1. The system should have **99.9% uptime** to ensure uninterrupted event management and participation.
+2. The system should support **graceful degradation** so that if one feature (e.g. floor plan) fails, the rest of the platform remains functional.
+
+---
+
+#### **Maintainability & Extensibility**
+
+1. The plugin management system should allow **third-party developers** to integrate custom plugins via a documented API.
+
+---
+
+#### **Integration & Compatibility**
+
+1. Event alerts should be delivered via **push notifications and email** for maximum reach.
+2. The system should be **mobile-responsive**, ensuring smooth usage on both desktop and mobile devices.
+
+
+## Architecture
+
+### Container-level Diagram
+
+![System Context Diagram](/architecture/coffeeBreak-ConteinersCustom.drawio.png)
+
+### Components-level Diagram
+
+![Components Diagram](/architecture/coffeeBreak-ComponentsDiagramC4ColoredV.drawio.png)
+
 
 ## Mockups
 
