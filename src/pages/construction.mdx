@@ -1,0 +1,103 @@
+---
+layout: ../layouts/MarkdownLayout.astro
+title: Construction
+---
+
+# M3 - Construction
+
+## Updated Architecture
+
+![Updated Architecture Diagram](/architecture/coffeeBreak-M3ArchUpdate.jpeg)
+This updated diagram imploved the data flows and made some interactions clearer and easier to understand.
+## Repository Division
+
+As reflected in our project architecture, the **CoffeeBreak** platform adopts a plugin-oriented design, emphasizing modularity, scalability, and maintainability. Thus, our repository division closely mirrors this architectural approach, clearly distinguishing between core services, frontend interfaces, and dynamically integrated plugins.
+
+### Core Repositories
+
+The project consists primarily of three fundamental repositories:
+
+#### [`core`](https://github.com/PI-coffeeBreak/core)
+The core repository contains the foundational backend functionalities required by the system, such as:
+- RESTful APIs (FastAPI)
+- User authentication and authorization (Keycloak)
+- Database integrations (PostgreSQL and MongoDB)
+- Core business logic
+- Plugin management and orchestration
+- Activities and users management
+
+#### [`frontend`](https://github.com/PI-coffeeBreak/frontend)
+The frontend repository provides the web interface tailored for event organizers and staff. Its key features include:
+- Event creation and editing capabilities
+- The ability to create and manage custom pages with components
+- Authentication via Keycloak
+
+#### [`event-app`](https://github.com/PI-coffeeBreak/event-app)
+A Progressive Web App (PWA) dedicated to end-users attending events, offering functionalities like:
+- Viewing event activities
+- Real-time notifications
+- Can have other functionalities depending on the plugins used
+
+### Plugin Repositories
+
+These repositories encapsulate individual plugins, each providing specific functionalities:
+
+#### [`event-schedule-plugin`](https://github.com/PI-coffeeBreak/event-schedule-plugin)
+Manages and displays event schedules to attendees.
+
+#### [`registration-system-plugin`](https://github.com/PI-coffeeBreak/registration-system-plugin)
+Handles attendee registration and related processes.
+
+#### [`sponsors-promotion-plugin`](https://github.com/PI-coffeeBreak/sponsors-promotion-plugin)
+Allows management and promotion of event sponsors.
+
+#### [`speaker-presentation-plugin`](https://github.com/PI-coffeeBreak/plugin-speaker)
+Manages profiles and information about event speakers.
+
+#### [`floor-plan-plugin`](https://github.com/PI-coffeeBreak/plugin-floorplan)
+Facilitates visualization and management of event floor plans or venue layouts.
+
+#### [`activities-feedback-plugin`](https://github.com/PI-coffeeBreak/plugin-feedback)
+Collects attendee feedback through ratings and descriptions.
+
+### Notifications and Alerts
+
+Plugins and services related to notifications:
+
+#### [`webpush-notifications-plugin`](https://github.com/PI-coffeeBreak/webpush-notifications-plugin)
+Wrapper providing simplified integration of web push notifications.
+
+#### [`webpush-sender`](https://github.com/PI-coffeeBreak/webpush-sender)
+Dedicated service responsible for dispatching web push notifications using RabbitMQ and Node.js.
+
+#### [`alert-system-plugin`](https://github.com/PI-coffeeBreak/alert-system-plugin)
+Supports the creation and management of user alerts and notifications.
+
+### Others
+
+Additional repositories supporting infrastructure, documentation, and reporting:
+
+#### [`orchestrator`](https://github.com/PI-coffeeBreak/orchestrator)
+Facilitates the deployment of the entire ecosystem through container orchestration.
+
+#### [`api-application-deployment`](https://github.com/PI-coffeeBreak/api-application-deployment)
+Bundles all necessary modules for streamlined deployment.
+
+#### [`pi-coffeebreak.github.io`](https://github.com/PI-coffeeBreak/pi-coffeebreak.github.io)
+Mini-website containing all project-related information and documentation.
+
+#### [`diagrams`](https://github.com/PI-coffeeBreak/diagrams)
+Contains architectural diagrams and visual documentation of the project.
+
+#### [`report`](https://github.com/PI-coffeeBreak/report)
+Repository dedicated to formal documentation such as the final report.
+
+---
+### Advantages of Plugin-Oriented Repository Division
+
+- **Scalability**: Allows independent scaling and deployment of individual plugins.
+- **Maintainability**: Facilitates simpler, targeted updates and bug fixes.
+- **Flexibility**: Easily add or remove features without affecting core functionalities.
+- **Collaboration**: Encourages parallel development by distributed teams.
+
+This modular structure provides clear delineation of responsibilities, simplifies maintenance, and significantly enhances the extensibility of the **CoffeeBreak** ecosystem.
