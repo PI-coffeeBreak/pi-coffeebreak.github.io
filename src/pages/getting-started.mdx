@@ -1,0 +1,286 @@
+---
+title: Getting Started
+---
+
+# Getting Started
+
+This guide will help you set up the development environment for the CoffeeBreak project.
+
+## 1. Clone the main repositories
+
+```bash
+# Clone the core repository
+$ git clone https://github.com/PI-coffeeBreak/core.git
+
+# Clone the event-app repository
+$ git clone https://github.com/PI-coffeeBreak/event-app.git
+
+# Clone the frontend repository
+$ git clone https://github.com/PI-coffeeBreak/frontend.git
+
+# (Optional) Clone the webpush-sender service
+# Only required if you want to use the webpush-notifications plugin
+$ git clone https://github.com/PI-coffeeBreak/webpush-sender.git
+```
+
+> **Note:** The `webpush-sender` service is only required if you want to use the `webpush-notifications` plugin. If you do not plan to use push notifications, you can skip this step.
+
+## 2. Example nginx configuration for production
+
+[Download example nginx.conf](./nginx.conf)
+
+Below is an example of an `nginx.conf` for production, similar to the one used in orchestrator:
+
+## 3. Example `docker-compose.yml` (production)
+
+[Download production docker-compose.yml](./docker-compose.prod.yml)
+
+Below is a production example using the official images from GitHub Container Registry:
+
+```yaml
+services:
+  core:
+    image: ghcr.io/pi-coffeebreak/core:latest
+    environment:
+      - KEYCLOAK_URL=${KEYCLOAK_URL}
+      - KEYCLOAK_CLIENT_SECRET=${KEYCLOAK_CLIENT_SECRET}
+      - DATABASE_URI=${DATABASE_URI}
+      - MONGODB_URI=${MONGODB_URI}
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    depends_on:
+      - database
+      - keycloak
+      - mongodb
+
+  event-app:
+    image: ghcr.io/pi-coffeebreak/event-app:latest
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+      - VITE_WS_URL=${VITE_WS_URL}
+      - VITE_VAPID_PUBLIC_KEY=${VITE_VAPID_PUBLIC_KEY}
+
+  frontend:
+    image: ghcr.io/pi-coffeebreak/admin-frontend:latest
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+      - VITE_KEYCLOAK_URL=${VITE_KEYCLOAK_URL}
+      - VITE_KEYCLOAK_CLIENT_ID=coffeebreak-client
+
+  database:
+    image: postgres:17.4-alpine3.21
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432" # Remove in production
+
+  mongodb:
+    image: mongo:8.0.5
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - "27017:27017" # Remove in production
+
+  keycloak:
+    build:
+      context: ./keycloak
+    environment:
+      - KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN}
+      - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD}
+      - KC_DB_USERNAME=${KC_DB_USERNAME}
+      - KC_DB_PASSWORD=${KC_DB_PASSWORD}
+    depends_on:
+      - keycloak-db
+    ports:
+      - "8081:8080" # Remove in production
+
+  keycloak-db:
+    image: postgres:17.4-alpine3.21
+    environment:
+      - POSTGRES_DB=keycloak
+      - POSTGRES_USER=${KC_DB_USERNAME}
+      - POSTGRES_PASSWORD=${KC_DB_PASSWORD}
+    ports:
+      - "5433:5432" # Remove in production
+
+  mq:
+    image: rabbitmq:4.0.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    ports:
+      - "5672:5672" # Remove in production
+
+  nginx:
+    image: nginx:1.27.4-alpine3.21-perl
+    ports:
+      - "80:80" # Remove in production
+      - "443:443" # Remove in production
+    depends_on:
+      - core
+      - event-app
+      - frontend
+```
+
+## 4. Example `docker-compose.yml` (development)
+
+[Download development docker-compose.yml](./docker-compose.dev.yml)
+
+Below is a development example. For production, use the downloadable file above.
+
+```yaml
+services:
+  core:
+    image: ghcr.io/pi-coffeebreak/core:latest
+    environment:
+      - KEYCLOAK_URL=${KEYCLOAK_URL}
+      - KEYCLOAK_CLIENT_SECRET=${KEYCLOAK_CLIENT_SECRET}
+      - DATABASE_URI=${DATABASE_URI}
+      - MONGODB_URI=${MONGODB_URI}
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    depends_on:
+      - database
+      - keycloak
+      - mongodb
+
+  event-app:
+    image: ghcr.io/pi-coffeebreak/event-app:latest
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+      - VITE_WS_URL=${VITE_WS_URL}
+      - VITE_VAPID_PUBLIC_KEY=${VITE_VAPID_PUBLIC_KEY}
+
+  frontend:
+    image: ghcr.io/pi-coffeebreak/admin-frontend:latest
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+      - VITE_KEYCLOAK_URL=${VITE_KEYCLOAK_URL}
+      - VITE_KEYCLOAK_CLIENT_ID=coffeebreak-client
+
+  database:
+    image: postgres:17.4-alpine3.21
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432" # Remove in production
+
+  mongodb:
+    image: mongo:8.0.5
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - "27017:27017" # Remove in production
+
+  keycloak:
+    build:
+      context: ./keycloak
+    environment:
+      - KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN}
+      - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD}
+      - KC_DB_USERNAME=${KC_DB_USERNAME}
+      - KC_DB_PASSWORD=${KC_DB_PASSWORD}
+    depends_on:
+      - keycloak-db
+    ports:
+      - "8081:8080" # Remove in production
+
+  keycloak-db:
+    image: postgres:17.4-alpine3.21
+    environment:
+      - POSTGRES_DB=keycloak
+      - POSTGRES_USER=${KC_DB_USERNAME}
+      - POSTGRES_PASSWORD=${KC_DB_PASSWORD}
+    ports:
+      - "5433:5432" # Remove in production
+
+  mq:
+    image: rabbitmq:4.0.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    ports:
+      - "5672:5672" # Remove in production
+
+  nginx:
+    image: nginx:1.27.4-alpine3.21-perl
+    ports:
+      - "80:80" # Remove in production
+      - "443:443" # Remove in production
+    depends_on:
+      - core
+      - event-app
+      - frontend
+```
+
+## 5. Example `.env`
+
+Adjust the values as needed. Use generic secrets and remember to change the values marked with `# change me`.
+
+```env
+# PostgreSQL
+POSTGRES_USER=username
+POSTGRES_PASSWORD=password          # change me
+POSTGRES_HOST=database
+POSTGRES_PORT=5432
+POSTGRES_DB=coffeebreak
+
+# MongoDB
+MONGO_INITDB_ROOT_USERNAME=admin
+MONGO_INITDB_ROOT_PASSWORD=admin    # change me
+MONGO_INITDB_DATABASE=coffeebreak
+
+# Keycloak
+KEYCLOAK_ADMIN=admin
+KEYCLOAK_ADMIN_PASSWORD=admin       # change me
+KC_DB_USERNAME=keycloak
+KC_DB_PASSWORD=keycloak             # change me
+KEYCLOAK_URL=http://localhost/auth/
+KEYCLOAK_CLIENT_SECRET=your-keycloak-client-secret # change me
+
+# RabbitMQ
+RABBITMQ_DEFAULT_USER=username
+RABBITMQ_DEFAULT_PASS=password      # change me
+
+# Web Push VAPID Keys
+VAPID_PUBLIC_KEY=your-vapid-public-key # change me
+VAPID_PRIVATE_KEY=your-vapid-private-key # change me
+
+# Frontend
+VITE_API_BASE_URL=http://localhost/api/v1
+VITE_WS_URL=ws://localhost/ws
+VITE_KEYCLOAK_URL=http://localhost/auth
+VITE_VAPID_PUBLIC_KEY=your-vapid-public-key # change me
+
+# Environment
+ENVIRONMENT=development
+```
+
+## 6. How to generate VAPID keys
+
+For push notifications, you need a pair of VAPID keys. Generate them with the following command (requires Node.js):
+
+```bash
+npx web-push generate-vapid-keys
+```
+
+The command will generate two keys:
+- `publicKey`: use as `VAPID_PUBLIC_KEY`
+- `privateKey`: use as `VAPID_PRIVATE_KEY`
+
+## 7. How to get the `KEYCLOAK_CLIENT_SECRET`
+
+1. Access the Keycloak panel (usually at `http://localhost/auth`).
+2. Log in as administrator.
+3. In the side menu, select the `coffeebreak` realm.
+4. Go to **Clients** and select the `fastapi-client` client.
+5. Click on **Credentials**.
+6. Copy the **Secret** value and set it in your `.env` as `KEYCLOAK_CLIENT_SECRET`.
+
+---
+
+If you have any questions, check the repositories' documentation or contact the team.
