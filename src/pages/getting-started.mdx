@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/MarkdownLayout.astro
 title: Getting Started
 ---
 
@@ -29,7 +30,96 @@ $ git clone https://github.com/PI-coffeeBreak/webpush-sender.git
 
 [Download example nginx.conf](./nginx.conf)
 
-Below is an example of an `nginx.conf` for production, similar to the one used in orchestrator:
+Below is an example of an `nginx.conf` for production, similar to the one used in orchestrator. 
+
+> **Note:** Change the `server_name _;` line to match your domain, e.g. `server_name mydomain.com;`
+
+```nginx
+# Example nginx.conf for CoffeeBreak
+# Change 'server_name _;' to your actual domain, e.g. 'server_name mydomain.com;'
+events {
+    worker_connections 1024;
+    use epoll;
+}
+
+http {
+    map $http_upgrade $connection_upgrade {
+        default upgrade;
+        ''      close;
+    }
+
+    upstream keycloak {
+        server keycloak:8443;
+    }
+
+    upstream api-application {
+        server api-application:8080;
+    }
+
+    upstream event-app {
+        server event-app:80;
+    }
+
+    upstream frontend {
+        server frontend:80;
+    }
+
+    server {
+        listen 80;
+        server_name _; # Change this to your domain
+
+        location /auth/ {
+            proxy_pass https://keycloak/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_ssl_verify off;
+        }
+
+        location /api/v1/ {
+            proxy_pass http://api-application;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /ws {
+            proxy_pass http://api-application;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header Origin $scheme://$host;
+        }
+
+        location / {
+            proxy_pass http://event-app;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+
+    server {
+        listen 80;
+        server_name _; # Change this to your admin domain if needed
+
+        location / {
+            proxy_pass http://frontend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}
+```
 
 ## 3. Example `docker-compose.yml` (production)
 
