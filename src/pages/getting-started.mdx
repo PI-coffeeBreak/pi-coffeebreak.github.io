@@ -156,40 +156,40 @@ Adjust the values as needed. Use generic secrets and remember to change the valu
 ```env
 # PostgreSQL
 POSTGRES_USER=username
-POSTGRES_PASSWORD=password          # change me
+POSTGRES_PASSWORD=password                  # change me
 POSTGRES_HOST=database
 POSTGRES_PORT=5432
 POSTGRES_DB=coffeebreak
 
 # MongoDB
 MONGO_INITDB_ROOT_USERNAME=admin
-MONGO_INITDB_ROOT_PASSWORD=admin    # change me
+MONGO_INITDB_ROOT_PASSWORD=admin            # change me
 MONGO_INITDB_DATABASE=coffeebreak
 
 # Keycloak
 KEYCLOAK_ADMIN=admin
-KEYCLOAK_ADMIN_PASSWORD=admin       # change me
+KEYCLOAK_ADMIN_PASSWORD=admin               # change me
 KC_DB_USERNAME=keycloak
-KC_DB_PASSWORD=keycloak             # change me
-KEYCLOAK_URL=http://localhost/auth/
+KC_DB_PASSWORD=keycloak                     # change me
+KEYCLOAK_URL=http://localhost/auth/         # change to your real hostname in production
 KEYCLOAK_CLIENT_SECRET=your-keycloak-client-secret # change me
 
 # RabbitMQ
 RABBITMQ_DEFAULT_USER=username
-RABBITMQ_DEFAULT_PASS=password      # change me
+RABBITMQ_DEFAULT_PASS=password              # change me
 
 # Web Push VAPID Keys
-VAPID_PUBLIC_KEY=your-vapid-public-key # change me
-VAPID_PRIVATE_KEY=your-vapid-private-key # change me
+VAPID_PUBLIC_KEY=your-vapid-public-key      # change me
+VAPID_PRIVATE_KEY=your-vapid-private-key    # change me
 
 # Frontend
-VITE_API_BASE_URL=http://localhost/api/v1
-VITE_WS_URL=ws://localhost/ws
-VITE_KEYCLOAK_URL=http://localhost/auth
+VITE_API_BASE_URL=http://localhost/api/v1   # change to your real hostname in production
+VITE_WS_URL=ws://localhost/ws               # change to your real hostname in production
+VITE_KEYCLOAK_URL=http://localhost/auth     # change to your real hostname in production
 VITE_VAPID_PUBLIC_KEY=your-vapid-public-key # change me
 
 # Environment
-ENVIRONMENT=development # change to 'production' in production
+ENVIRONMENT=development                     # change to 'production' in production
 ```
 
 ## 4. How to generate VAPID keys

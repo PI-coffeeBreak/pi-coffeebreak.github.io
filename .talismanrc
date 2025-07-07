@@ -10,5 +10,5 @@ fileignoreconfig:
 - filename: public/nginx.conf
   checksum: c8f8c11abf2bc2ecc1151c5e0489b66ac0b6aae69f98083267ac8d4f12a997cb
 - filename: src/pages/getting-started.mdx
-  checksum: ad8ecb2440003a822e18e0ecd2d6b664291dcfd21a0c1cc545fcff68c8f26cc2
+  checksum: 77d680f7fa606218f22bfe627b87bb71a71ddf2fbd973c33074e2fbeea4f3298
 version: "1.0"
