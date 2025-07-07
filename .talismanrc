@@ -1,6 +1,8 @@
 fileignoreconfig:
 - filename: package-lock.json
   checksum: 77a1572ad90ee7b040f31aebd763a553cecca66d22f65da07336cc2a6472a602
+- filename: public/.env.example
+  checksum: 15e2831d563fd368ef55d144030885b1fb3123c442a98d7e9350d7aa1849ef12
 - filename: public/docker-compose.dev.yml
   checksum: 6941c9cb522f3c88fb4a4bab5376bee4ab8ebf1357c27da9e3b6593b97637588
 - filename: public/docker-compose.prod.yml
@@ -8,5 +10,5 @@ fileignoreconfig:
 - filename: public/nginx.conf
   checksum: c8f8c11abf2bc2ecc1151c5e0489b66ac0b6aae69f98083267ac8d4f12a997cb
 - filename: src/pages/getting-started.mdx
-  checksum: fec4dfafe2ad605943a0e886be98b82ece0db596d81d2d2dec8dd1b55667d091
+  checksum: ad8ecb2440003a822e18e0ecd2d6b664291dcfd21a0c1cc545fcff68c8f26cc2
 version: "1.0"
